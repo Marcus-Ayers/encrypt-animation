@@ -106,7 +106,7 @@ export default function Home() {
           default:
             break;
         }
-      }, 175);
+      }, 250);
 
       return () => {
         clearInterval(intervalId);
@@ -117,6 +117,89 @@ export default function Home() {
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+  const [randomIndexes1, setRandomIndexes1] = useState([]);
+  const [randomIndexes2, setRandomIndexes2] = useState([]);
+  const [randomIndexes3, setRandomIndexes3] = useState([]);
+  const [randomIndexes4, setRandomIndexes4] = useState([]);
+  const [randomIndexes5, setRandomIndexes5] = useState([]);
+  const [randomIndexes6, setRandomIndexes6] = useState([]);
+  const [randomIndexes7, setRandomIndexes7] = useState([]);
+  const [randomIndexes8, setRandomIndexes8] = useState([]);
+  const [randomIndexes9, setRandomIndexes9] = useState([]);
+  const [randomIndexes10, setRandomIndexes10] = useState([]);
+
+  // Generate 25 unique random numbers on component mount
+  useEffect(() => {
+    const indexes = new Set();
+    while (indexes.size < 25) {
+      indexes.add(Math.floor(Math.random() * 392));
+    }
+    setRandomIndexes10([...indexes]);
+  }, [array10]);
+  useEffect(() => {
+    const indexes = new Set();
+    while (indexes.size < 25) {
+      indexes.add(Math.floor(Math.random() * 392));
+    }
+    setRandomIndexes9([...indexes]);
+  }, [array9]);
+  useEffect(() => {
+    const indexes = new Set();
+    while (indexes.size < 25) {
+      indexes.add(Math.floor(Math.random() * 392));
+    }
+    setRandomIndexes8([...indexes]);
+  }, [array8]);
+  useEffect(() => {
+    const indexes = new Set();
+    while (indexes.size < 25) {
+      indexes.add(Math.floor(Math.random() * 392));
+    }
+    setRandomIndexes7([...indexes]);
+  }, [array7]);
+  useEffect(() => {
+    const indexes = new Set();
+    while (indexes.size < 25) {
+      indexes.add(Math.floor(Math.random() * 392));
+    }
+    setRandomIndexes6([...indexes]);
+  }, [array6]);
+  useEffect(() => {
+    const indexes = new Set();
+    while (indexes.size < 25) {
+      indexes.add(Math.floor(Math.random() * 392));
+    }
+    setRandomIndexes5([...indexes]);
+  }, [array5]);
+  useEffect(() => {
+    const indexes = new Set();
+    while (indexes.size < 25) {
+      indexes.add(Math.floor(Math.random() * 392));
+    }
+    setRandomIndexes4([...indexes]);
+  }, [array4]);
+  useEffect(() => {
+    const indexes = new Set();
+    while (indexes.size < 25) {
+      indexes.add(Math.floor(Math.random() * 392));
+    }
+    setRandomIndexes3([...indexes]);
+  }, [array3]);
+  useEffect(() => {
+    const indexes = new Set();
+    while (indexes.size < 25) {
+      indexes.add(Math.floor(Math.random() * 392));
+    }
+    setRandomIndexes2([...indexes]);
+  }, [array2]);
+  useEffect(() => {
+    const indexes = new Set();
+    while (indexes.size < 25) {
+      indexes.add(Math.floor(Math.random() * 392));
+    }
+    setRandomIndexes1([...indexes]);
+  }, [array1]);
 
   if (!isMounted) {
     return null;
@@ -182,7 +265,7 @@ export default function Home() {
             </div>
           </div>
           <div
-            className="-mt-2"
+            className="-mt-2 "
             style={{
               ...marqueeStyle,
               clipPath: "polygon(47.5% 0, 95% 0, 95% 100%, 47.5% 100%)",
@@ -191,52 +274,152 @@ export default function Home() {
             <div className="marquee">
               <div className="wrapText pl-2 text-[10px]" style={divStyle2}>
                 <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono">
-                  {array1.join(" ")}
+                  {array1.map((char, index) =>
+                    randomIndexes1.includes(index) ? (
+                      <span key={index} className="text-white">
+                        {char}{" "}
+                      </span>
+                    ) : (
+                      <span key={index} className="text-zinc-500">
+                        {char}{" "}
+                      </span>
+                    )
+                  )}
                 </p>
               </div>
               <div className="wrapText pl-2 text-[10px]" style={divStyle2}>
                 <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono">
-                  {array2.join(" ")}
+                  {array2.map((char, index) =>
+                    randomIndexes2.includes(index) ? (
+                      <span key={index} className="text-white">
+                        {char}{" "}
+                      </span>
+                    ) : (
+                      <span key={index} className="text-zinc-500">
+                        {char}{" "}
+                      </span>
+                    )
+                  )}
                 </p>
               </div>
               <div className="wrapText pl-2 text-[10px]" style={divStyle2}>
                 <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono">
-                  {array3.join(" ")}
+                  {array3.map((char, index) =>
+                    randomIndexes3.includes(index) ? (
+                      <span key={index} className="text-white">
+                        {char}{" "}
+                      </span>
+                    ) : (
+                      <span key={index} className="text-zinc-500">
+                        {char}{" "}
+                      </span>
+                    )
+                  )}
                 </p>
               </div>
               <div className="wrapText pl-2 text-[10px]" style={divStyle2}>
-                <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono text-zinc-500">
-                  {array4.join(" ")}
+                <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono">
+                  {array4.map((char, index) =>
+                    randomIndexes4.includes(index) ? (
+                      <span key={index} className="text-white">
+                        {char}{" "}
+                      </span>
+                    ) : (
+                      <span key={index} className="text-zinc-500">
+                        {char}{" "}
+                      </span>
+                    )
+                  )}
                 </p>
               </div>
               <div className="wrapText pl-2 text-[10px]" style={divStyle2}>
-                <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono text-zinc-500">
-                  {array5.join(" ")}
+                <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono">
+                  {array5.map((char, index) =>
+                    randomIndexes5.includes(index) ? (
+                      <span key={index} className="text-white">
+                        {char}{" "}
+                      </span>
+                    ) : (
+                      <span key={index} className="text-zinc-500">
+                        {char}{" "}
+                      </span>
+                    )
+                  )}
                 </p>
               </div>
               <div className="wrapText pl-2 text-[10px]" style={divStyle2}>
-                <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono text-zinc-500">
-                  {array6.join(" ")}
+                <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono">
+                  {array6.map((char, index) =>
+                    randomIndexes6.includes(index) ? (
+                      <span key={index} className="text-white">
+                        {char}{" "}
+                      </span>
+                    ) : (
+                      <span key={index} className="text-zinc-500">
+                        {char}{" "}
+                      </span>
+                    )
+                  )}
                 </p>
               </div>
               <div className="wrapText pl-2 text-[10px]" style={divStyle2}>
-                <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono text-zinc-500">
-                  {array7.join(" ")}
+                <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono">
+                  {array7.map((char, index) =>
+                    randomIndexes7.includes(index) ? (
+                      <span key={index} className="text-white">
+                        {char}{" "}
+                      </span>
+                    ) : (
+                      <span key={index} className="text-zinc-500">
+                        {char}{" "}
+                      </span>
+                    )
+                  )}
                 </p>
               </div>
               <div className="wrapText pl-2 text-[10px]" style={divStyle2}>
-                <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono text-zinc-500">
-                  {array8.join(" ")}
+                <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono">
+                  {array8.map((char, index) =>
+                    randomIndexes8.includes(index) ? (
+                      <span key={index} className="text-white">
+                        {char}{" "}
+                      </span>
+                    ) : (
+                      <span key={index} className="text-zinc-500">
+                        {char}{" "}
+                      </span>
+                    )
+                  )}
                 </p>
               </div>
               <div className="wrapText pl-2 text-[10px]" style={divStyle2}>
-                <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono text-zinc-500">
-                  {array9.join(" ")}
+                <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono">
+                  {array9.map((char, index) =>
+                    randomIndexes9.includes(index) ? (
+                      <span key={index} className="text-white">
+                        {char}{" "}
+                      </span>
+                    ) : (
+                      <span key={index} className="text-zinc-500">
+                        {char}{" "}
+                      </span>
+                    )
+                  )}
                 </p>
               </div>
               <div className="wrapText pl-2 text-[10px]" style={divStyle2}>
-                <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono text-zinc-500">
-                  {array10.join(" ")}
+                <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono">
+                  {array10.map((char, index) =>
+                    randomIndexes10.includes(index) ? (
+                      <span key={index} className="text-white">
+                        {char}{" "}
+                      </span>
+                    ) : (
+                      <span key={index} className="text-zinc-500">
+                        {char}{" "}
+                      </span>
+                    )
+                  )}
                 </p>
               </div>
             </div>

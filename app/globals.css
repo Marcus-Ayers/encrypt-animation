@@ -82,7 +82,7 @@ body {
   overflow: hidden;
 
   flex-wrap: nowrap;
-  animation: marquee 50s linear infinite;
+  animation: marquee 70s linear infinite;
 }
 
 * {
