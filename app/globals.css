@@ -31,7 +31,8 @@ body {
 }
 
 .glow-line-parent {
-  top: 42%;
+  /* top: 42%; */
+  margin-top: 120px;
   left: 50%;
   z-index: 10;
   height: 250px; /* Height of the line */
@@ -65,4 +66,32 @@ body {
       rgba(68, 0, 255, 0.876) 20%,
       rgba(70, 0, 255, 0) 100%
     );
+}
+/* CSS file */
+@keyframes marquee {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(10%);
+  }
+}
+
+.marquee {
+  display: inline-flex;
+  overflow: hidden;
+
+  flex-wrap: nowrap;
+  animation: marquee 50s linear infinite;
+}
+
+* {
+  overflow: hidden;
+}
+
+.marquee-content {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  /* make this twice as wide as .marquee */
+  animation: marquee 10s linear infinite;
 }
