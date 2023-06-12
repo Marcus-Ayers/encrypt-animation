@@ -46,7 +46,7 @@ export default function Home() {
   }
 
   const bigArray = generateArray();
-  console.log(bigArray);
+  // console.log(bigArray);
 
   return (
     <div className="">
@@ -60,10 +60,10 @@ export default function Home() {
           >
             <Marquee direction="right" speed={100}>
               <div className="bg-blue-800" style={divStyle1}></div>
-              <div className="bg-blue-800" style={divStyle1}></div>
-              <div className="bg-blue-800" style={divStyle1}></div>
-              <div className="bg-blue-800" style={divStyle1}></div>
-              <div className="bg-blue-800" style={divStyle1}></div>
+              <div className="bg-red-800" style={divStyle1}></div>
+              <div className="bg-green-800" style={divStyle1}></div>
+              <div className="bg-orange-800" style={divStyle1}></div>
+              <div className="bg-purple-800" style={divStyle1}></div>
             </Marquee>
           </div>
           <div
