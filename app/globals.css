@@ -25,3 +25,44 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+.wrapText {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.glow-line-parent {
+  top: 42%;
+  left: 50%;
+  z-index: 10;
+  height: 250px; /* Height of the line */
+  width: 240px;
+  position: absolute;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  transform: translate(-50%, -50%);
+}
+
+.glow-line-child {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  background: radial-gradient(
+      1% 60% at 50% 50%,
+      #fff 0,
+      rgba(70, 0, 255, 0) 80%
+    ),
+    radial-gradient(
+      10% 60% at 50% 50%,
+      #fff,
+      rgba(70, 0, 255, 1) 20%,
+      rgba(70, 0, 255, 0) 100%
+    ),
+    radial-gradient(
+      8% 50% at 50% 50%,
+      #fff,
+      rgba(68, 0, 255, 0.876) 20%,
+      rgba(70, 0, 255, 0) 100%
+    );
+}
