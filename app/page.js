@@ -1,9 +1,11 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import IdCard from "@/lib/id-card";
+import IdCard from "./id-card";
+import { WindMap } from "./WindMap";
 
 export default function Home() {
+  const [bearing, setBearing] = useState(270);
   const [isTouching, setIsTouching] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const [touchingDivId, setTouchingDivId] = useState(null);
@@ -172,8 +174,12 @@ export default function Home() {
 
   return (
     <div className="">
-      <div className="m-auto h-[100vh] w-[95vw] bg-zinc-400 rounded-b-[50px] position-relative ">
+      <div className="m-auto h-[100vh] w-[95vw] bg-zinc-900 rounded-b-[50px] position-relative">
         <div className="pt-48 position-relative">
+          <div className="absolute w-full h-[250px]">
+            <WindMap bearing={bearing} />
+          </div>
+
           <div
             style={{
               ...marqueeStyle,
@@ -224,8 +230,17 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="glow-line-parent mt-[120px] left-1/2 z-10 h-[250px] w-[250px] absolute pointer-events-none mix-blend-screen">
-            <div className="glow-line-child top-0 right-0 bottom-0 left-0 absolute"></div>
+          <div>
+            <div className=" glow-line-parent mt-[125px] left-1/2 z-10 h-[250px] w-[250px] absolute pointer-events-none mix-blend-screen">
+              <div className="glow-line-child top-0 right-0 bottom-0 left-0 absolute glow-line-child-initial"></div>
+              <div
+                className={`glow-line-child ml-3 top-0 right-0 bottom-0 left-0 absolute ${
+                  isTouching
+                    ? "glow-line-child-touching is-touching"
+                    : "glow-line-child-touching"
+                }`}
+              ></div>
+            </div>
           </div>
         </div>
       </div>
