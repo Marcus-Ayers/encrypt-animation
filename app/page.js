@@ -3,33 +3,34 @@ import React, { useState, useEffect } from "react";
 
 export default function Home() {
   const [isTouching, setIsTouching] = useState(false);
-
   const [isMounted, setIsMounted] = useState(false);
+  const [touchingDivId, setTouchingDivId] = useState(null);
 
-  const [array1, setArray1] = useState([]);
-  const [array2, setArray2] = useState([]);
-  const [array3, setArray3] = useState([]);
-  const [array4, setArray4] = useState([]);
-  const [array5, setArray5] = useState([]);
-  const [array6, setArray6] = useState([]);
-  const [array7, setArray7] = useState([]);
-  const [array8, setArray8] = useState([]);
-  const [array9, setArray9] = useState([]);
-  const [array10, setArray10] = useState([]);
+  const [arrays, setArrays] = useState({
+    array1: { array: [], indexes: [] },
+    array2: { array: [], indexes: [] },
+    array3: { array: [], indexes: [] },
+    array4: { array: [], indexes: [] },
+    array5: { array: [], indexes: [] },
+    array6: { array: [], indexes: [] },
+    array7: { array: [], indexes: [] },
+    array8: { array: [], indexes: [] },
+    array9: { array: [], indexes: [] },
+    array10: { array: [], indexes: [] },
+  });
 
+  // This useEffect initializes all arrays and indexes when the component is mounted.
   useEffect(() => {
-    setArray1(generateArray());
-    setArray2(generateArray());
-    setArray3(generateArray());
-    setArray4(generateArray());
-    setArray5(generateArray());
-    setArray6(generateArray());
-    setArray7(generateArray());
-    setArray8(generateArray());
-    setArray9(generateArray());
-    setArray10(generateArray());
+    const newArrays = { ...arrays };
+    Object.keys(newArrays).forEach((key) => {
+      newArrays[key].array = generateArray();
+      // newArrays[key].indexes = generateIndexes();
+    });
+    setArrays(newArrays);
   }, []);
 
+  // This useEffect monitors the position of the scrolling elements.
+  // It sets the "isTouching" state and "touchingDivId" state according to which div is in the middle of the viewport.
   useEffect(() => {
     if (isMounted) {
       let animationFrameId = null;
@@ -63,147 +64,69 @@ export default function Home() {
       };
     }
   }, [isMounted]);
-  useEffect(() => {
-    console.log(isTouching);
-  }, [isTouching]);
 
-  const [touchingDivId, setTouchingDivId] = useState(null);
-
+  // This useEffect is responsible for updating the array of the currently touching div every 250ms.
   useEffect(() => {
     if (isTouching) {
       const intervalId = setInterval(() => {
-        switch (touchingDivId) {
-          case "div1":
-            setArray1(generateArray());
-            break;
-          case "div2":
-            setArray2(generateArray());
-            break;
-          case "div3":
-            setArray3(generateArray());
-            break;
-          case "div4":
-            setArray4(generateArray());
-            break;
-          case "div5":
-            setArray5(generateArray());
-            break;
-          case "div6":
-            setArray6(generateArray());
-            break;
-          case "div7":
-            setArray7(generateArray());
-            break;
-          case "div8":
-            setArray8(generateArray());
-            break;
-          case "div9":
-            setArray9(generateArray());
-            break;
-          case "div10":
-            setArray10(generateArray());
-            break;
-          default:
-            break;
-        }
+        const stateKey = `array${touchingDivId.replace("div", "")}`;
+        setArrays((prevState) => ({
+          ...prevState,
+          [stateKey]: {
+            ...prevState[stateKey],
+            array: generateArray(),
+          },
+        }));
       }, 250);
 
-      return () => {
-        clearInterval(intervalId);
-      };
+      return () => clearInterval(intervalId);
     }
   }, [isTouching, touchingDivId]);
 
+  // This useEffect sets the isMounted state to true when the component is mounted.
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
-  const [randomIndexes1, setRandomIndexes1] = useState([]);
-  const [randomIndexes2, setRandomIndexes2] = useState([]);
-  const [randomIndexes3, setRandomIndexes3] = useState([]);
-  const [randomIndexes4, setRandomIndexes4] = useState([]);
-  const [randomIndexes5, setRandomIndexes5] = useState([]);
-  const [randomIndexes6, setRandomIndexes6] = useState([]);
-  const [randomIndexes7, setRandomIndexes7] = useState([]);
-  const [randomIndexes8, setRandomIndexes8] = useState([]);
-  const [randomIndexes9, setRandomIndexes9] = useState([]);
-  const [randomIndexes10, setRandomIndexes10] = useState([]);
+  const [numArrays, setNumArrays] = useState({
+    array1: { array: [], indexes: [] },
+    array2: { array: [], indexes: [] },
+    array3: { array: [], indexes: [] },
+    array4: { array: [], indexes: [] },
+    array5: { array: [], indexes: [] },
+    array6: { array: [], indexes: [] },
+    array7: { array: [], indexes: [] },
+    array8: { array: [], indexes: [] },
+    array9: { array: [], indexes: [] },
+    array10: { array: [], indexes: [] },
+  });
 
-  // Generate 25 unique random numbers on component mount
+  // This useEffect updates the random indexes of the currently touching div, for setting white chars, every 250ms.
   useEffect(() => {
-    const indexes = new Set();
-    while (indexes.size < 25) {
-      indexes.add(Math.floor(Math.random() * 392));
-    }
-    setRandomIndexes10([...indexes]);
-  }, [array10]);
-  useEffect(() => {
-    const indexes = new Set();
-    while (indexes.size < 25) {
-      indexes.add(Math.floor(Math.random() * 392));
-    }
-    setRandomIndexes9([...indexes]);
-  }, [array9]);
-  useEffect(() => {
-    const indexes = new Set();
-    while (indexes.size < 25) {
-      indexes.add(Math.floor(Math.random() * 392));
-    }
-    setRandomIndexes8([...indexes]);
-  }, [array8]);
-  useEffect(() => {
-    const indexes = new Set();
-    while (indexes.size < 25) {
-      indexes.add(Math.floor(Math.random() * 392));
-    }
-    setRandomIndexes7([...indexes]);
-  }, [array7]);
-  useEffect(() => {
-    const indexes = new Set();
-    while (indexes.size < 25) {
-      indexes.add(Math.floor(Math.random() * 392));
-    }
-    setRandomIndexes6([...indexes]);
-  }, [array6]);
-  useEffect(() => {
-    const indexes = new Set();
-    while (indexes.size < 25) {
-      indexes.add(Math.floor(Math.random() * 392));
-    }
-    setRandomIndexes5([...indexes]);
-  }, [array5]);
-  useEffect(() => {
-    const indexes = new Set();
-    while (indexes.size < 25) {
-      indexes.add(Math.floor(Math.random() * 392));
-    }
-    setRandomIndexes4([...indexes]);
-  }, [array4]);
-  useEffect(() => {
-    const indexes = new Set();
-    while (indexes.size < 25) {
-      indexes.add(Math.floor(Math.random() * 392));
-    }
-    setRandomIndexes3([...indexes]);
-  }, [array3]);
-  useEffect(() => {
-    const indexes = new Set();
-    while (indexes.size < 25) {
-      indexes.add(Math.floor(Math.random() * 392));
-    }
-    setRandomIndexes2([...indexes]);
-  }, [array2]);
-  useEffect(() => {
-    const indexes = new Set();
-    while (indexes.size < 25) {
-      indexes.add(Math.floor(Math.random() * 392));
-    }
-    setRandomIndexes1([...indexes]);
-  }, [array1]);
+    if (isTouching) {
+      const intervalId = setInterval(() => {
+        const arrayKey = touchingDivId.replace("div", "array"); // Converts 'div1' to 'array1', etc.
 
-  if (!isMounted) {
-    return null;
-  }
+        if (numArrays[arrayKey]) {
+          const indexes = new Set();
+          while (indexes.size < 25) {
+            indexes.add(Math.floor(Math.random() * 392));
+          }
+
+          setNumArrays((prevState) => ({
+            ...prevState,
+            [arrayKey]: {
+              ...prevState[arrayKey],
+              indexes: [...indexes],
+            },
+          }));
+        }
+      }, 250);
+
+      return () => clearInterval(intervalId);
+    }
+  }, [isTouching, numArrays, touchingDivId]);
+
   const divStyle1 = {
     width: "350px",
     height: "250px",
@@ -222,12 +145,6 @@ export default function Home() {
     height: "100%",
   };
 
-  const GlowLine = () => (
-    <div className="glow-line-parent mt-[120px] left-1/2 z-10 h-[250px] w-[250px] absolute pointer-events-none mix-blend-screen">
-      <div className="glow-line-child top-0 right-0 bottom-0 left-0 absolute"></div>
-    </div>
-  );
-
   function generateArray() {
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+-?!";
     const array = [];
@@ -239,6 +156,18 @@ export default function Home() {
       array.push(randomChar);
     }
     return array;
+  }
+
+  // function generateIndexes() {
+  //   // const indexes = new Set();
+  //   // while (indexes.size < 25) {
+  //   //   indexes.add(Math.floor(Math.random() * 392));
+  //   // }
+  //   // return [...indexes];
+  // }
+
+  if (!isMounted) {
+    return null;
   }
 
   return (
@@ -272,159 +201,32 @@ export default function Home() {
             }}
           >
             <div className="marquee inline-flex overflow-hidden flex-nowrap">
-              <div className="wrapText pl-2 text-[10px]" style={divStyle2}>
-                <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono">
-                  {array1.map((char, index) =>
-                    randomIndexes1.includes(index) ? (
-                      <span key={index} className="text-white">
-                        {char}{" "}
-                      </span>
-                    ) : (
-                      <span key={index} className="text-zinc-500">
-                        {char}{" "}
-                      </span>
-                    )
-                  )}
-                </p>
-              </div>
-              <div className="wrapText pl-2 text-[10px]" style={divStyle2}>
-                <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono">
-                  {array2.map((char, index) =>
-                    randomIndexes2.includes(index) ? (
-                      <span key={index} className="text-white">
-                        {char}{" "}
-                      </span>
-                    ) : (
-                      <span key={index} className="text-zinc-500">
-                        {char}{" "}
-                      </span>
-                    )
-                  )}
-                </p>
-              </div>
-              <div className="wrapText pl-2 text-[10px]" style={divStyle2}>
-                <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono">
-                  {array3.map((char, index) =>
-                    randomIndexes3.includes(index) ? (
-                      <span key={index} className="text-white">
-                        {char}{" "}
-                      </span>
-                    ) : (
-                      <span key={index} className="text-zinc-500">
-                        {char}{" "}
-                      </span>
-                    )
-                  )}
-                </p>
-              </div>
-              <div className="wrapText pl-2 text-[10px]" style={divStyle2}>
-                <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono">
-                  {array4.map((char, index) =>
-                    randomIndexes4.includes(index) ? (
-                      <span key={index} className="text-white">
-                        {char}{" "}
-                      </span>
-                    ) : (
-                      <span key={index} className="text-zinc-500">
-                        {char}{" "}
-                      </span>
-                    )
-                  )}
-                </p>
-              </div>
-              <div className="wrapText pl-2 text-[10px]" style={divStyle2}>
-                <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono">
-                  {array5.map((char, index) =>
-                    randomIndexes5.includes(index) ? (
-                      <span key={index} className="text-white">
-                        {char}{" "}
-                      </span>
-                    ) : (
-                      <span key={index} className="text-zinc-500">
-                        {char}{" "}
-                      </span>
-                    )
-                  )}
-                </p>
-              </div>
-              <div className="wrapText pl-2 text-[10px]" style={divStyle2}>
-                <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono">
-                  {array6.map((char, index) =>
-                    randomIndexes6.includes(index) ? (
-                      <span key={index} className="text-white">
-                        {char}{" "}
-                      </span>
-                    ) : (
-                      <span key={index} className="text-zinc-500">
-                        {char}{" "}
-                      </span>
-                    )
-                  )}
-                </p>
-              </div>
-              <div className="wrapText pl-2 text-[10px]" style={divStyle2}>
-                <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono">
-                  {array7.map((char, index) =>
-                    randomIndexes7.includes(index) ? (
-                      <span key={index} className="text-white">
-                        {char}{" "}
-                      </span>
-                    ) : (
-                      <span key={index} className="text-zinc-500">
-                        {char}{" "}
-                      </span>
-                    )
-                  )}
-                </p>
-              </div>
-              <div className="wrapText pl-2 text-[10px]" style={divStyle2}>
-                <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono">
-                  {array8.map((char, index) =>
-                    randomIndexes8.includes(index) ? (
-                      <span key={index} className="text-white">
-                        {char}{" "}
-                      </span>
-                    ) : (
-                      <span key={index} className="text-zinc-500">
-                        {char}{" "}
-                      </span>
-                    )
-                  )}
-                </p>
-              </div>
-              <div className="wrapText pl-2 text-[10px]" style={divStyle2}>
-                <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono">
-                  {array9.map((char, index) =>
-                    randomIndexes9.includes(index) ? (
-                      <span key={index} className="text-white">
-                        {char}{" "}
-                      </span>
-                    ) : (
-                      <span key={index} className="text-zinc-500">
-                        {char}{" "}
-                      </span>
-                    )
-                  )}
-                </p>
-              </div>
-              <div className="wrapText pl-2 text-[10px]" style={divStyle2}>
-                <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono">
-                  {array10.map((char, index) =>
-                    randomIndexes10.includes(index) ? (
-                      <span key={index} className="text-white">
-                        {char}{" "}
-                      </span>
-                    ) : (
-                      <span key={index} className="text-zinc-500">
-                        {char}{" "}
-                      </span>
-                    )
-                  )}
-                </p>
-              </div>
+              {Object.keys(arrays).map((key) => (
+                <div
+                  key={key}
+                  className="wrapText pl-2 text-[10px]"
+                  style={divStyle2}
+                >
+                  <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono">
+                    {arrays[key].array.map((char, index) =>
+                      numArrays[key].indexes.includes(index) ? (
+                        <span key={index} className="text-white">
+                          {char}{" "}
+                        </span>
+                      ) : (
+                        <span key={index} className="text-zinc-500">
+                          {char}{" "}
+                        </span>
+                      )
+                    )}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
-          <GlowLine />
+          <div className="glow-line-parent mt-[120px] left-1/2 z-10 h-[250px] w-[250px] absolute pointer-events-none mix-blend-screen">
+            <div className="glow-line-child top-0 right-0 bottom-0 left-0 absolute"></div>
+          </div>
         </div>
       </div>
       <div className="h-screen"></div>
