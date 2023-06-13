@@ -223,8 +223,8 @@ export default function Home() {
   };
 
   const GlowLine = () => (
-    <div className="glow-line-parent">
-      <div className="glow-line-child"></div>
+    <div className="glow-line-parent mt-[120px] left-1/2 z-10 h-[250px] w-[250px] absolute pointer-events-none mix-blend-screen">
+      <div className="glow-line-child top-0 right-0 bottom-0 left-0 absolute"></div>
     </div>
   );
 
@@ -251,7 +251,7 @@ export default function Home() {
               clipPath: "polygon(0 0, 47.5% 0, 47.5% 100%, 0 100%)",
             }}
           >
-            <div className="marquee">
+            <div className="marquee inline-flex overflow-hidden flex-nowrap">
               <div id="div1" className="bg-blue-800" style={divStyle1}></div>
               <div id="div2" className="bg-red-800" style={divStyle1}></div>
               <div id="div3" className="bg-green-800" style={divStyle1}></div>
@@ -271,7 +271,7 @@ export default function Home() {
               clipPath: "polygon(47.5% 0, 95% 0, 95% 100%, 47.5% 100%)",
             }}
           >
-            <div className="marquee">
+            <div className="marquee inline-flex overflow-hidden flex-nowrap">
               <div className="wrapText pl-2 text-[10px]" style={divStyle2}>
                 <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono">
                   {array1.map((char, index) =>

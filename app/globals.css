@@ -31,24 +31,10 @@ body {
 }
 
 .glow-line-parent {
-  /* top: 42%; */
-  margin-top: 120px;
-  left: 50%;
-  z-index: 10;
-  height: 250px; /* Height of the line */
-  width: 240px;
-  position: absolute;
-  pointer-events: none;
-  mix-blend-mode: screen;
   transform: translate(-50%, -50%);
 }
 
 .glow-line-child {
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  position: absolute;
   background: radial-gradient(
       1% 60% at 50% 50%,
       #fff 0,
@@ -78,20 +64,9 @@ body {
 }
 
 .marquee {
-  display: inline-flex;
-  overflow: hidden;
-
-  flex-wrap: nowrap;
   animation: marquee 70s linear infinite;
 }
 
 * {
   overflow: hidden;
-}
-
-.marquee-content {
-  display: inline-flex;
-  flex-wrap: nowrap;
-  /* make this twice as wide as .marquee */
-  animation: marquee 10s linear infinite;
 }
