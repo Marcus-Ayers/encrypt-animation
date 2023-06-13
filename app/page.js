@@ -1,5 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import IdCard from "@/lib/id-card";
 
 export default function Home() {
   const [isTouching, setIsTouching] = useState(false);
@@ -37,9 +39,7 @@ export default function Home() {
 
       const checkPosition = () => {
         const halfWindowWidth = window.innerWidth / 2;
-        const targets = document.querySelectorAll(
-          ".bg-blue-800, .bg-red-800, .bg-green-800, .bg-orange-800, .bg-purple-800"
-        );
+        const targets = document.querySelectorAll(".collision");
 
         let touching = false;
         let touchingDivId = null;
@@ -181,16 +181,16 @@ export default function Home() {
             }}
           >
             <div className="marquee inline-flex overflow-hidden flex-nowrap">
-              <div id="div1" className="bg-blue-800" style={divStyle1}></div>
-              <div id="div2" className="bg-red-800" style={divStyle1}></div>
-              <div id="div3" className="bg-green-800" style={divStyle1}></div>
-              <div id="div4" className="bg-orange-800" style={divStyle1}></div>
-              <div id="div5" className="bg-purple-800" style={divStyle1}></div>
-              <div id="div6" className="bg-blue-800" style={divStyle1}></div>
-              <div id="div7" className="bg-red-800" style={divStyle1}></div>
-              <div id="div8" className="bg-green-800" style={divStyle1}></div>
-              <div id="div9" className="bg-orange-800" style={divStyle1}></div>
-              <div id="div10" className="bg-purple-800" style={divStyle1}></div>
+              <IdCard divId="1" />
+              <IdCard divId="2" />
+              <IdCard divId="3" />
+              <IdCard divId="4" />
+              <IdCard divId="5" />
+              <IdCard divId="6" />
+              <IdCard divId="7" />
+              <IdCard divId="8" />
+              <IdCard divId="9" />
+              <IdCard divId="10" />
             </div>
           </div>
           <div
