@@ -83,9 +83,9 @@ body {
   animation: marquee 70s linear infinite;
 }
 
-/* * {
-  overflow: hidden;
-} */
+* {
+  overflow-x: hidden;
+}
 
 @keyframes fadeIn {
   0% {
@@ -110,4 +110,17 @@ body {
 
 .fadeOut {
   animation: fadeOut 0.5s ease-out forwards;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.element {
+  background: radial-gradient(
+    140% 107.13% at 50% 10%,
+    transparent 37.41%,
+    #63e 69.27%,
+    #fff 100%
+  );
 }

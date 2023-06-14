@@ -184,80 +184,91 @@ export default function Home() {
 
   return (
     <div className="">
-      <div className="m-auto h-[100vh] w-[95vw] bg-zinc-900 rounded-b-[50px] position-relative">
-        <div className="pt-48 position-relative">
-          <div className="absolute w-full h-[250px]">
-            <WindMap bearing={bearing} />
-          </div>
-          <div
-            className={`absolute w-full left-[-1px] h-[250px] ${
-              isTouching ? "fadeIn" : "fadeOut"
-            }`}
-          >
-            <WindMap2 bearing={bearing} />
-          </div>
+      <div>
+        <div className="m-auto element h-[90vh] w-[95vw] rounded-b-[50px] ">
+          <div className="pt-48 ">
+            <div className="absolute w-[95%] h-[250px]">
+              <WindMap bearing={bearing} />
+            </div>
+            <div
+              className={`absolute w-full left-[-1px] h-[250px] ${
+                isTouching ? "fadeIn" : "fadeOut"
+              }`}
+            >
+              <WindMap2 bearing={bearing} />
+            </div>
 
-          <div
-            style={{
-              ...marqueeStyle,
-              clipPath: "polygon(0 0, 47.5% 0, 47.5% 100%, 0 100%)",
-            }}
-          >
-            <div className="marquee inline-flex overflow-hidden flex-nowrap">
-              <IdCard divId="1" />
-              <IdCard divId="2" />
-              <IdCard divId="3" />
-              <IdCard divId="4" />
-              <IdCard divId="5" />
-              <IdCard divId="6" />
-              <IdCard divId="7" />
-              <IdCard divId="8" />
-              <IdCard divId="9" />
-              <IdCard divId="10" />
+            <div
+              style={{
+                ...marqueeStyle,
+                clipPath: "polygon(0 0, 47.5% 0, 47.5% 100%, 0 100%)",
+              }}
+            >
+              <div className="marquee inline-flex overflow-hidden flex-nowrap">
+                <IdCard divId="1" />
+                <IdCard divId="2" />
+                <IdCard divId="3" />
+                <IdCard divId="4" />
+                <IdCard divId="5" />
+                <IdCard divId="6" />
+                <IdCard divId="7" />
+                <IdCard divId="8" />
+                <IdCard divId="9" />
+                <IdCard divId="10" />
+              </div>
             </div>
-          </div>
-          <div
-            className="-mt-2 "
-            style={{
-              ...marqueeStyle,
-              clipPath: "polygon(47.5% 0, 95% 0, 95% 100%, 47.5% 100%)",
-            }}
-          >
-            <div className="marquee inline-flex overflow-hidden flex-nowrap">
-              {Object.keys(arrays).map((key) => (
+            <div
+              className="-mt-2 "
+              style={{
+                ...marqueeStyle,
+                clipPath: "polygon(47.5% 0, 95% 0, 95% 100%, 47.5% 100%)",
+              }}
+            >
+              <div className="marquee inline-flex overflow-hidden flex-nowrap">
+                {Object.keys(arrays).map((key) => (
+                  <div
+                    key={key}
+                    className="wrapText pl-2 text-[10px] overflow-hidden"
+                    style={divStyle2}
+                  >
+                    <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono ">
+                      {arrays[key].array.map((char, index) =>
+                        numArrays[key].indexes.includes(index) ? (
+                          <span key={index} className="text-white">
+                            {char}{" "}
+                          </span>
+                        ) : (
+                          <span key={index} className="text-zinc-500">
+                            {char}{" "}
+                          </span>
+                        )
+                      )}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div>
+              <div className=" glow-line-parent mt-[125px] left-1/2 z-10 h-[250px] w-[250px] absolute pointer-events-none mix-blend-screen">
+                <div className="glow-line-child top-0 right-0 bottom-0 left-0 absolute glow-line-child-initial"></div>
                 <div
-                  key={key}
-                  className="wrapText pl-2 text-[10px]"
-                  style={divStyle2}
-                >
-                  <p className="tracking-normal leading-[18.4px] -mt-[3px] font-mono">
-                    {arrays[key].array.map((char, index) =>
-                      numArrays[key].indexes.includes(index) ? (
-                        <span key={index} className="text-white">
-                          {char}{" "}
-                        </span>
-                      ) : (
-                        <span key={index} className="text-zinc-500">
-                          {char}{" "}
-                        </span>
-                      )
-                    )}
-                  </p>
-                </div>
-              ))}
+                  className={`glow-line-child ml-3 top-0 right-0 bottom-0 left-0 absolute ${
+                    isTouching
+                      ? "glow-line-child-touching is-touching"
+                      : "glow-line-child-touching"
+                  }`}
+                ></div>
+              </div>
             </div>
           </div>
-          <div>
-            <div className=" glow-line-parent mt-[125px] left-1/2 z-10 h-[250px] w-[250px] absolute pointer-events-none mix-blend-screen">
-              <div className="glow-line-child top-0 right-0 bottom-0 left-0 absolute glow-line-child-initial"></div>
-              <div
-                className={`glow-line-child ml-3 top-0 right-0 bottom-0 left-0 absolute ${
-                  isTouching
-                    ? "glow-line-child-touching is-touching"
-                    : "glow-line-child-touching"
-                }`}
-              ></div>
-            </div>
+          <div className="absolute bottom-[10%] left-[38%] flex flex-col items-center">
+            <h1 className="text-5xl bg-gradient-to-l from-gray-400 via-white to-gray-400 text-transparent bg-clip-text">
+              File Encryption
+            </h1>
+            <p className="mt-3 bg-gradient-to-l from-gray-400 via-white to-gray-400 text-transparent bg-clip-text max-w-sm text-center">
+              Effortlessly encrypt files at rest and in transit with minimal
+              changes to your code.
+            </p>
           </div>
         </div>
       </div>
