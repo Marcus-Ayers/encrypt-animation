@@ -1,9 +1,9 @@
 import { OrbitControls, Stats } from "@react-three/drei";
 import { Canvas, useThree } from "@react-three/fiber";
-import { Wind, Wind2, Wind3, Wind4 } from "./Wind";
 import { PerspectiveCamera } from "@react-three/drei";
 import React from "react";
 import { useMemo } from "react";
+import { Wind4 } from "../components/Wind";
 
 export const WindMap2 = React.memo(({ bearing }) => {
   // const onCreated = ({ gl }) => {

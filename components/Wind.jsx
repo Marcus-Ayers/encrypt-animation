@@ -5,7 +5,7 @@ import {
   Float32BufferAttribute,
 } from "three";
 import { useFrame, useThree } from "@react-three/fiber";
-import { angleVector, randomDecimal } from "./utils";
+import { angleVector, randomDecimal } from "../components/utils";
 
 export const Wind = ({ bearing }) => {
   // create the particle variables

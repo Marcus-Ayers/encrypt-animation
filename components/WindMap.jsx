@@ -1,6 +1,6 @@
 import { OrbitControls, Stats } from "@react-three/drei";
 import { Canvas, useThree } from "@react-three/fiber";
-import { Wind, Wind2, Wind3 } from "./Wind";
+import { Wind, Wind2, Wind3 } from "../components/Wind";
 import { PerspectiveCamera } from "@react-three/drei";
 import React from "react";
 import { useMemo } from "react";

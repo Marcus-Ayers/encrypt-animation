@@ -1,9 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import IdCard from "./id-card";
-import { WindMap } from "./WindMap";
-import { WindMap2 } from "./WindMap2";
+import { WindMap } from "../components/WindMap";
+import { WindMap2 } from "../components/WindMap2";
+import IdCard from "../components/id-card";
 
 export default function Home() {
   const [bearing, setBearing] = useState(270);
