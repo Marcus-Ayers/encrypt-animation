@@ -261,11 +261,11 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="absolute bottom-[10%] left-[38%] flex flex-col items-center">
-            <h1 className="text-5xl bg-gradient-to-l from-gray-400 via-white to-gray-400 text-transparent bg-clip-text">
+          <div className="relative top-[50%] left-[50%] transform -translate-x-1/2 flex flex-col items-center">
+            <h1 className=" overflow-visible text-base md:text-5xl bg-gradient-to-l from-gray-400 via-white to-gray-400 text-transparent bg-clip-text">
               File Encryption
             </h1>
-            <p className="mt-3 bg-gradient-to-l from-gray-400 via-white to-gray-400 text-transparent bg-clip-text max-w-sm text-center">
+            <p className="mt-3 text-xs md:text-base bg-gradient-to-l from-gray-400 via-white to-gray-400 text-transparent bg-clip-text max-w-sm text-center">
               Effortlessly encrypt files at rest and in transit with minimal
               changes to your code.
             </p>
