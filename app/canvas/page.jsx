@@ -1,5 +1,5 @@
 "use client";
-import { WindMap } from "../WindMap.jsx";
+import { WindMap2 } from "../WindMap2.jsx";
 import { useRef, useState } from "react";
 
 const CanvasPage = () => {
@@ -7,7 +7,7 @@ const CanvasPage = () => {
 
   return (
     <div id="app" className="">
-      <WindMap bearing={bearing} />
+      <WindMap2 bearing={bearing} />
       <div className="controls">{/* <div>{bearing}</div> */}</div>
     </div>
   );

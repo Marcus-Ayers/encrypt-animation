@@ -3,12 +3,22 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import IdCard from "./id-card";
 import { WindMap } from "./WindMap";
+import { WindMap2 } from "./WindMap2";
 
 export default function Home() {
   const [bearing, setBearing] = useState(270);
   const [isTouching, setIsTouching] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const [touchingDivId, setTouchingDivId] = useState(null);
+  const [opacity, setOpacity] = useState(0);
+
+  useEffect(() => {
+    if (isTouching) {
+      setOpacity(1);
+    } else {
+      setOpacity(0);
+    }
+  }, [isTouching]);
 
   const [arrays, setArrays] = useState({
     array1: { array: [], indexes: [] },
@@ -178,6 +188,13 @@ export default function Home() {
         <div className="pt-48 position-relative">
           <div className="absolute w-full h-[250px]">
             <WindMap bearing={bearing} />
+          </div>
+          <div
+            className={`absolute w-full left-[-1px] h-[250px] ${
+              isTouching ? "fadeIn" : "fadeOut"
+            }`}
+          >
+            <WindMap2 bearing={bearing} />
           </div>
 
           <div
