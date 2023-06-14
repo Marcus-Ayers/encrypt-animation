@@ -185,7 +185,7 @@ export default function Home() {
     <div className="">
       <div>
         <div className="m-auto element h-[90vh] w-[95vw] rounded-b-[50px] ">
-          <div className="pt-48 ">
+          <div className=" pt-28">
             <div className="absolute w-[95%] h-[250px]">
               <WindMap bearing={bearing} />
             </div>
